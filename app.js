@@ -275,6 +275,16 @@ const renderActivities = () => {
   const status = activitiesContainer.querySelector("[data-activity-status]");
   const choices = activitiesContainer.querySelectorAll("[data-activity-index]");
   const filters = activitiesContainer.querySelectorAll("[data-activity-filter]");
+  const browser = activitiesContainer.querySelector(".activities__browser");
+  const mobileLayout = window.matchMedia("(max-width: 800px)");
+
+  const positionDetail = () => {
+    if (mobileLayout.matches) {
+      choices[selectedIndex].after(detail);
+    } else {
+      browser.append(detail);
+    }
+  };
 
   const selectActivity = (index) => {
     selectedIndex = index;
@@ -295,6 +305,7 @@ const renderActivities = () => {
         Voir sur Google Maps ↗<span class="visually-hidden"> — nouvel onglet</span>
       </a>
     `;
+    positionDetail();
     status.textContent = `Détails affichés : ${activity.name}. Pour jeudi ou vendredi, selon l'envie.`;
   };
 
@@ -321,6 +332,7 @@ const renderActivities = () => {
     status.textContent = `${count} idée${count > 1 ? "s" : ""} · Détails affichés : ${activities[selectedIndex].name}. Pour jeudi ou vendredi.`;
   });
 
+  mobileLayout.addEventListener("change", positionDetail);
   selectActivity(0);
 };
 
@@ -421,12 +433,71 @@ const setActivePage = () => {
   const currentPage = document.body.dataset.page || "home";
 
   navLinks.forEach((link) => {
-    link.classList.toggle("is-active", link.dataset.navPage === currentPage);
+    const active = link.dataset.navPage === currentPage;
+    link.classList.toggle("is-active", active);
+    if (active) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
   });
+};
+
+const initializeNavigation = () => {
+  const nav = document.querySelector(".nav");
+  if (!nav) return;
+
+  const links = nav.querySelector(".nav__links");
+  const mobile = window.matchMedia("(max-width: 880px)");
+  const toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "nav__toggle";
+  toggle.innerHTML = '<span class="nav__toggle-icon" aria-hidden="true"></span><span>Menu</span>';
+  toggle.setAttribute("aria-controls", "navigation-links");
+  links.id = "navigation-links";
+  nav.insertBefore(toggle, links);
+
+  const setOpen = (open) => {
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+    nav.classList.toggle("is-open", open);
+    links.hidden = mobile.matches && !open;
+  };
+
+  const reset = () => {
+    const focusInside = nav.contains(document.activeElement);
+    toggle.hidden = !mobile.matches;
+    setOpen(false);
+    if (focusInside) {
+      (mobile.matches ? toggle : nav.querySelector(".nav__brand")).focus();
+    }
+  };
+
+  toggle.addEventListener("click", () => {
+    setOpen(toggle.getAttribute("aria-expanded") !== "true");
+  });
+  nav.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && mobile.matches && toggle.getAttribute("aria-expanded") === "true") {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  links.addEventListener("click", (event) => {
+    if (event.target.closest("a") && mobile.matches) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  document.addEventListener("click", (event) => {
+    if (!nav.contains(event.target) && mobile.matches) setOpen(false);
+  });
+  document.addEventListener("focusin", (event) => {
+    if (!nav.contains(event.target) && mobile.matches) setOpen(false);
+  });
+  mobile.addEventListener("change", reset);
+  reset();
 };
 
 renderItinerary();
 renderActivities();
 setActivePage();
+initializeNavigation();
 
 initializeInvitation();
