@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Une invitation de voyage à Bruges pour célébrer les 5 ans d'Eliot et Chrystal"
+    />
+    <title>Bruges | 5 ans d'Eliot & Chrystal</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="home">
+    <main class="experience" id="top">
+      <section class="letter-scene" aria-label="Invitation scellée" aria-hidden="true" inert hidden>
+        <div class="letter-light"></div>
+        <div class="letter-sparks" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="letter-scene__intro">
+          <p>Invitation confidentielle</p>
+          <h2>Pour nos 5 ans</h2>
+        </div>
+        <button class="envelope" type="button" data-open-letter data-envelope aria-label="Ouvrir l'invitation">
+          <div class="envelope__shine"></div>
+          <div class="envelope__back"></div>
+          <div class="envelope__flap"></div>
+          <div class="envelope__front"></div>
+          <div class="wax-seal" aria-hidden="true">
+            <span>E</span><span>&</span><span>C</span>
+          </div>
+        </button>
+        <button class="letter-scene__open" type="button" data-open-letter>Ouvrir l'invitation</button>
+        <button class="letter-scene__return" type="button" data-close-letter hidden>Revenir à l'accueil</button>
+      </section>
+
+      <section class="reveal-site" data-site>
+        <nav class="nav" aria-label="Navigation principale">
+          <a href="index.html" class="nav__brand" data-nav-page="home">Eliot & Chrystal</a>
+          <div class="nav__links">
+            <a href="destination.html" data-nav-page="destination">Destination</a>
+            <a href="transport.html" data-nav-page="transport">Transport</a>
+            <a href="hotel.html" data-nav-page="hotel">Hôtel</a>
+            <a href="programme.html" data-nav-page="programme">Programme</a>
+            <a href="diner.html" data-nav-page="diner">Dîner</a>
+            <a href="details.html" data-nav-page="details">Détails</a>
+          </div>
+        </nav>
+
+        <a class="back-to-top" href="#top" aria-label="Revenir en haut">
+          ↑
+        </a>
+
+        <header class="hero">
+          <img class="hero__image" src="assets/bruges.jpg" alt="Le canal du Rozenhoedkaai et le Beffroi de Bruges" width="1920" height="1280" fetchpriority="high" />
+          <div class="hero__content">
+            <p class="kicker">11–14 novembre 2026 · 3 nuits à Bruges</p>
+            <h1 tabindex="-1" data-home-title>Bruges, pour nos 5 ans</h1>
+            <p>
+              Quatre jours entre canaux, façades flamandes, dîners aux chandelles et
+              matins lents. Une escapade élégante, pensée comme un souvenir que l'on
+              aura envie de raconter longtemps
+            </p>
+            <div class="hero__actions">
+              <a href="programme.html" class="hero__cta">Voir notre programme</a>
+              <a href="transport.html" class="hero__shortcut">Nos trains</a>
+              <a href="hotel.html" class="hero__shortcut">Notre hôtel</a>
+            </div>
+            <button class="hero__replay" type="button" data-replay-letter hidden>Revoir l'invitation</button>
+            <p class="hero__notice" data-invitation-notice role="status" hidden></p>
+          </div>
+        </header>
+
+        <section class="quick-nav quick-nav--home" aria-label="Pages du voyage">
+          <a href="destination.html">
+            <span>Destination</span>
+            <strong>Bruges, la Venise du Nord</strong>
+          </a>
+          <a href="transport.html">
+            <span>Train</span>
+            <strong>Paris → Bruxelles → Bruges</strong>
+          </a>
+          <a href="hotel.html">
+            <span>Hôtel</span>
+            <strong>Die Swaene · 4 étoiles</strong>
+          </a>
+          <a href="programme.html">
+            <span>Programme</span>
+            <strong>3 nuits souples et romantiques</strong>
+          </a>
+        </section>
+        <p class="photo-credit">Photo : <a href="https://commons.wikimedia.org/wiki/File:Rozenhoedkaai_(canal)_and_Belfry_of_Bruges,_Bruges,_Belgium_(Ank_Kumar,_Infosys_Limited)_05.jpg" target="_blank" rel="noopener noreferrer">Ank Kumar · Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a> (recadrage à l'affichage).</p>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

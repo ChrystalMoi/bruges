@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Programme souple de 3 nuits à Bruges." />
+    <title>Programme | 3 nuits à Bruges</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="programme">
+    <main class="page" id="top">
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="index.html" class="nav__brand" data-nav-page="home">Eliot & Chrystal</a>
+        <div class="nav__links">
+          <a href="destination.html" data-nav-page="destination">Destination</a>
+          <a href="transport.html" data-nav-page="transport">Transport</a>
+          <a href="hotel.html" data-nav-page="hotel">Hôtel</a>
+          <a href="programme.html" data-nav-page="programme">Programme</a>
+          <a href="diner.html" data-nav-page="diner">Dîner</a>
+          <a href="details.html" data-nav-page="details">Détails</a>
+        </div>
+      </nav>
+      <a class="back-to-top" href="#top" aria-label="Revenir en haut">↑</a>
+
+      <section class="itinerary page-section">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">Programme souple</p>
+            <h1>Du 11 au 14 novembre</h1>
+          </div>
+          <p class="section-heading__copy">Les horaires essentiels et du temps pour nous. Pour jeudi et vendredi, on pioche librement dans les <a href="#activites">idées d'activités</a> selon l'envie et la météo.</p>
+        </div>
+        <div class="days" data-days></div>
+        <section class="activities" id="activites" aria-labelledby="activities-title">
+          <div class="section-heading">
+            <div>
+              <p class="section-label">Jeudi 12 & vendredi 13 novembre</p>
+              <h2 id="activities-title">Idées d'activités</h2>
+            </div>
+            <p class="section-heading__copy">De quoi a-t-on envie ? Comparer les idées en un regard, filtrer par envie et sélectionner un lieu pour les détails. À répartir librement sur nos deux jours ^^</p>
+          </div>
+          <div data-activities></div>
+        </section>
+      </section>
+    </main>
+    <script src="app.js" defer></script>
+  </body>
+</html>
