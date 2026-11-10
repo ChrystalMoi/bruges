@@ -730,7 +730,7 @@ body[data-page="diner"] .page {
   padding: 0.85rem;
   border: 1px solid rgba(230, 201, 131, 0.24);
   border-radius: 0.5rem;
-  background: rgba(251, 246, 235, 0.08);
+  background: rgba(18, 24, 21, 0.5);
 }
 
 .route-timeline span {
@@ -751,7 +751,7 @@ body[data-page="diner"] .page {
 }
 
 .route-timeline small {
-  color: rgba(251, 246, 235, 0.66);
+  color: rgba(251, 246, 235, 0.9);
 }
 
 .summary-stack {
